@@ -1,27 +1,27 @@
 <template>
    <div>
-       <section>
+       <section id="table">
            <b-table
                    :data="data"
-                   :columns="columns"
                    :paginated="true"
                    :per-page="10"
+                   detailed
            >
                <template slot-scope="props">
                    <b-table-column field="id" label="ID" width="80" sortable numeric>
                        {{ props.row.id }}
                    </b-table-column>
 
-                   <b-table-column field="name" label="First Name" sortable searchable>
-                    {{ props.row.name}}
+                   <b-table-column field="first_name" label="First Name" sortable searchable>
+                    {{ props.row.first_name}}
                    </b-table-column>
 
-                   <b-table-column field="surname" label="Last Name" sortable searchable>
-                       {{ props.row.surname}}
+                   <b-table-column field="last_name" label="Last Name" sortable searchable>
+                       {{ props.row.last_name}}
                    </b-table-column>
 
-                   <b-table-column field="birthday" label="Birthday" sortable searchable >
-                       {{ props.row.birthday}}
+                   <b-table-column field="birth_date" label="Birthday" sortable searchable >
+                       {{ props.row.birth_date.substring(0,10)}}
                    </b-table-column>
 
                    <b-table-column field="sex" label="Gender" width="140" centered sortable numeric>
@@ -35,6 +35,9 @@
                    <b-table-column field="pesel" label="PESEL" sortable searchable>
                        {{ props.row.pesel}}
                    </b-table-column>
+               </template>
+               <template slot="detail" slot-scope="props">
+                   {{ props.row.name }}
                </template>
            </b-table>
        </section>
@@ -50,47 +53,6 @@
         data() {
           return {
               data: [],
-              columns: [
-                  {
-                      field: 'id',
-                      label: "ID",
-                      width: '80',
-                      numeric: true,
-                      sortable: true,
-                  },
-                  {
-                      field: 'name',
-                      label: 'First Name',
-                      searchable: true,
-                      sortable: true,
-                  },
-                  {
-                      field: 'surname',
-                      label: 'Last Name',
-                      searchable: true,
-                      sortable: true,
-                  },
-                  {
-                      field: 'birthday',
-                      label: 'Date',
-                      sortable: true,
-                      searchable: true,
-                      centered: true,
-                  },
-                  {
-                      field: 'sex',
-                      label: 'Gender',
-                      width: '120',
-                      centered: true,
-                      sortable: true,
-                  },
-                  {
-                      field: 'pesel',
-                      label: 'PESEL',
-                      searchable: true,
-                      sortable: true,
-                  }
-              ]
           }
         },
         mounted() {
@@ -100,4 +62,7 @@
 </script>
 
 <style scoped>
+    #table {
+        margin: 2em;
+    }
 </style>
