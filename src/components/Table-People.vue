@@ -39,8 +39,7 @@
                     </b-table-column>
                 </template>
                 <template slot="detail" slot-scope="props">
-                    {{ props.row.id }}
-                    <table-metrics v-bind:patient-id="props.row.id" v-bind:metrics="metrics"></table-metrics>
+                    <table-metrics :patient-id="props.row.id" :metrics="metrics"></table-metrics>
                 </template>
             </b-table>
         </section>
