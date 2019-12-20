@@ -1,20 +1,29 @@
 <template>
-
+    <div>
+<!--        <b-table-->
+<!--                :data="this.metrics"-->
+<!--        >-->
+<!--            <template slot-scope="props">-->
+<!--                <b-table-column field="id" label="ID" numeric>-->
+<!--                    {{data}}-->
+<!--                    {{this.metrics}}-->
+<!--                    {{this.patientId}}-->
+<!--                    {{props.row.id}}-->
+<!--                </b-table-column>-->
+<!--            </template>-->
+<!--        </b-table>-->
+    </div>
 </template>
 
 <script>
-    import axios from "axios";
-
     export default {
-        name: "Table-Metrics",
+        name: "table-metrics",
         data() {
             return {
                 data: [],
             }
         },
-        mounted() {
-            axios.get('http://localhost:8000/metrics/').then(response => (this.data = response.data))
-        }
+        props:['patientId', 'metrics'],
     }
 </script>
 

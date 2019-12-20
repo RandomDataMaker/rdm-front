@@ -34,7 +34,7 @@
             return {
                 product: 'It\'s working!',
                 faceinfo: "Tom Tester",
-                image: require("@/assets/skeleton.png"),
+                // image: require("@/assets/skeleton.png"),
                 size: "100px",
                 person_details: "http://putelita.pl",
                 alive: true
