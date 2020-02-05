@@ -13,7 +13,8 @@
 <!--            <p v-else>Umarł</p>-->
 <!--            <button @click="clickTest">Click</button>-->
 <!--        </div>-->
-       <table-people></table-people>
+        <table-people/>
+        <people-chart-container/>
     </div>
 </template>
 
@@ -25,11 +26,12 @@
     // Vue.use(VueFluent)
     import Buefy from 'buefy';
     import 'buefy/dist/buefy.css'
-    Vue.use(Buefy)
+    import PeopleChartContainer from "./components/people-chart-container";
+    Vue.use(Buefy);
 
     export default {
         name: 'app',
-        components: {TablePeople},
+        components: {PeopleChartContainer, TablePeople},
         data() {
             return {
                 product: 'It\'s working!',
