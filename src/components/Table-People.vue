@@ -39,7 +39,7 @@
                     </b-table-column>
                 </template>
                 <template slot="detail" slot-scope="props">
-                    <table-metrics :patient-id="props.row.id" :metrics="metrics"></table-metrics>
+                    <table-metrics :patient-id="props.row.id" :metrics="metrics" :attributes="attributes"></table-metrics>
                 </template>
             </b-table>
         </section>
@@ -58,11 +58,13 @@
             return {
                 data: [],
                 metrics: [],
+                attributes: [],
             }
         },
         mounted() {
             axios.get('http://localhost:8000/person/').then(response => (this.data = response.data)),
-                axios.get('http://localhost:8000/metrics/').then(response => (this.metrics = response.data))
+                axios.get('http://localhost:8000/metrics/').then(response => (this.metrics = response.data)),
+                axios.get('http://localhost:8000/attributes/').then(response => (this.attributes = response.data))
         }
     }
 </script>

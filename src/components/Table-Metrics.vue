@@ -25,14 +25,19 @@
                     {{props.row.attributes}}
                 </b-table-column>
             </template>
-            <template slot="detail" slot-scope="props">
-                <ul>
+            <template slot="detail">
+                <b-table :data="attributes.filter(attribute => attribute.id == metrics.filter(metric => metric.patient_id == patientId)[0].attributes_id)" detailed >
+                    <template slot-scope="props">
+                       
+                        <ul>
                     <li v-for="(value, key) in JSON.parse(props.row.attributes)" :key="key">
                         <b>{{key}}</b>:
                         {{value}}
 <!--                        {{attribute.key}} {{attribute.value}}-->
                     </li>
                 </ul>
+                    </template>
+                </b-table>
             </template>
         </b-table>
     </div>
@@ -48,7 +53,10 @@
             },
             metrics: {
                 type: Array
-            }
+            },
+            attributes: {
+                type: Array
+            },
         },
         data() {
             return {
